@@ -1,0 +1,25 @@
+{
+  "name": "veridian-fullstack",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev:backend": "pnpm --filter @workspace/api-server dev",
+    "dev:frontend": "pnpm --filter veridian-wealth dev",
+    "dev": "concurrently \"pnpm dev:backend\" \"pnpm dev:frontend\"",
+    "db:generate": "pnpm --filter @workspace/db db:generate",
+    "db:migrate": "pnpm --filter @workspace/db db:migrate",
+    "build": "pnpm -r build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prettier": "^3.8.3",
+    "typescript": "~5.9.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "19.1.0",
+      "react-dom": "19.1.0"
+    }
+  }
+}
